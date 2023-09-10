@@ -1,3 +1,7 @@
+## 1.0.7 Update
+
+see top-level CHANGELOG.md
+
 ## newer releases
 
 see top-level CHANGELOG.md

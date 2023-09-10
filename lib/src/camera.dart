@@ -73,18 +73,14 @@ class CameraPosition {
     if (identical(this, other)) return true;
     if (runtimeType != other.runtimeType) return false;
     final CameraPosition typedOther = other;
-    return bearing == typedOther.bearing &&
-        target == typedOther.target &&
-        tilt == typedOther.tilt &&
-        zoom == typedOther.zoom;
+    return bearing == typedOther.bearing && target == typedOther.target && tilt == typedOther.tilt && zoom == typedOther.zoom;
   }
 
   @override
   int get hashCode => Object.hash(bearing, target, tilt, zoom);
 
   @override
-  String toString() =>
-      'CameraPosition(bearing: $bearing, target: $target, tilt: $tilt, zoom: $zoom)';
+  String toString() => 'CameraPosition(bearing: $bearing, target: $target, tilt: $tilt, zoom: $zoom)';
 }
 
 /// Defines a camera move, supporting absolute moves as well as moves relative
@@ -110,8 +106,7 @@ class CameraUpdate {
   /// possible zoom level. A non-zero [left], [top], [right] and [bottom] padding
   /// insets the bounding box from the map view's edges.
   /// The camera's new tilt and bearing will both be 0.0.
-  static CameraUpdate newLatLngBounds(LatLngBounds bounds,
-      {double left = 0, double top = 0, double right = 0, double bottom = 0}) {
+  static CameraUpdate newLatLngBounds(LatLngBounds bounds, {double left = 0, double top = 0, double right = 0, double bottom = 0}) {
     return CameraUpdate._(<dynamic>[
       'newLatLngBounds',
       bounds.toList(),

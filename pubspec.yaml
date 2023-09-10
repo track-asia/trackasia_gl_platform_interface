@@ -1,6 +1,6 @@
 name: trackasia_gl_platform_interface
 description: A common platform interface for the trackasia_gl plugin.
-version: 1.0.5
+version: 1.0.7
 homepage: https://github.com/track-asia/trackasia-flutter-gl
 
 dependencies:
@@ -10,5 +10,5 @@ dependencies:
   typed_data: ^1.3.0
 
 environment:
-  sdk: '>=2.16.2 <3.0.0'
+  sdk: '>=2.16.2 <4.0.0'
   flutter: '>=2.10.0'

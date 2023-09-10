@@ -6,7 +6,7 @@ part of trackasia_gl_platform_interface;
 
 class TrackasiaStyles {
   /// A very simple trackasia demo style
-  static const String DEMO = "https://demotiles.maplibre.org/style.json";
+  static const String DEMO = "https://tiles.track-asia.com/tiles/v3/style-streets.json?key=public";
 }
 
 /// The camera mode, which determines how the map camera will track the rendered location.
@@ -17,10 +17,15 @@ enum MyLocationTrackingMode {
   TrackingGPS,
 }
 
-/// Render mode
+/// Specifies if and how the user's heading/bearing is rendered in the user location indicator.
 enum MyLocationRenderMode {
+  /// Do not show the user's heading/bearing.
   NORMAL,
+
+  /// Show the user's heading/bearing as determined by the device's compass. On iOS, this causes the user's location to be shown on the map.
   COMPASS,
+
+  /// Show the user's heading/bearing as determined by the device's GPS sensor. Not supported on iOS.
   GPS,
 }
 
@@ -81,8 +86,7 @@ class CameraTargetBounds {
 // distinguishing between specifying unbounded zooming (null `minZoom` and
 // `maxZoom`) from not specifying anything (null `MinMaxZoomPreference`).
 class MinMaxZoomPreference {
-  const MinMaxZoomPreference(this.minZoom, this.maxZoom)
-      : assert(minZoom == null || maxZoom == null || minZoom <= maxZoom);
+  const MinMaxZoomPreference(this.minZoom, this.maxZoom) : assert(minZoom == null || maxZoom == null || minZoom <= maxZoom);
 
   /// The preferred minimum zoom level or null, if unbounded from below.
   final double? minZoom;
@@ -91,8 +95,7 @@ class MinMaxZoomPreference {
   final double? maxZoom;
 
   /// Unbounded zooming.
-  static const MinMaxZoomPreference unbounded =
-      MinMaxZoomPreference(null, null);
+  static const MinMaxZoomPreference unbounded = MinMaxZoomPreference(null, null);
 
   dynamic toJson() => <dynamic>[minZoom, maxZoom];
 
